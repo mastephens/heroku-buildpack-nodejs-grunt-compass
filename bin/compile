@@ -83,7 +83,7 @@ fi
 
 status "Removing cached npm modules"
 is_nodemodules_present= [ -f $cache_dir/node/node_modules ]
-if $is_gruntfile_present; then
+if $is_nodemodules_present; then
   status "Removing Cached Node Modules"
   rm -r $cache_dir/node/node_modules
 else
