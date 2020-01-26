@@ -82,7 +82,10 @@ else
 fi
 
 status "Removing cached npm modules"
-rm -r $cache_dir/node/node_modules
+is_nodemodules_present= [ -f $cache_dir/node/node_modules ]
+if $is_gruntfile_present; then
+  rm -r $cache_dir/node/node_modules
+fi
   
 # If node_modules directory is checked into source control then
 # rebuild any native deps. Otherwise, restore from the build cache.
