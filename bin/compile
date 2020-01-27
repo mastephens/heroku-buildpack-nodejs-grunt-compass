@@ -170,7 +170,7 @@ if test -d $cache_dir/ruby/.gem; then
   status "Restoring ruby gems directory from cache"
   cp -r $cache_dir/ruby/.gem $build_dir 
 else
-  HOME=$build_dir gem install compass -v 0.12.7 --user-install --no-rdoc --no-ri
+  HOME=$build_dir gem install compass -v 1.0.3 --user-install
 fi
 
 # cache ruby gems compass
@@ -186,7 +186,7 @@ fi
 status "Building runtime environment"
 mkdir -p $build_dir/.profile.d
 echo "export PATH=\"\$HOME/vendor/node/bin:\$HOME/bin:\$HOME/node_modules/.bin:\$PATH\";" > $build_dir/.profile.d/nodejs.sh
-echo "export PATH=\"\$HOME/.gem/ruby/1.9.1/bin:\$PATH\"" > $build_dir/.profile.d/ruby.sh
+echo "export PATH=\"\$HOME/.gem/ruby/2.6.5/bin:\$PATH\"" > $build_dir/.profile.d/ruby.sh
 
 # Check and run Grunt
 (
